@@ -4,6 +4,8 @@ import ICreateUsersDTO from '@modules/users/dtos/ICreateUserDTO';
 
 import IUsersRepository from '../../repositories/IUsersRepository';
 
+import IFindAllProvidersDTO from '@modules/users/dtos/IFindAllProvidersDTO';
+
 import { uuid } from 'uuidv4';
 
 export default class UsersRepository implements IUsersRepository {
@@ -21,15 +23,27 @@ export default class UsersRepository implements IUsersRepository {
     return findUser;
   }
 
+  public async findAllProviders({
+    except_user_id,
+  }: IFindAllProvidersDTO): Promise<User[]> {
+    let { users } = this;
+
+    if (except_user_id) {
+      users = this.users.filter(user => user.id !== except_user_id);
+    }
+
+    return users;
+  }
+
   public async create(userData: ICreateUsersDTO): Promise<User> {
     const user = new User();
 
-    Object.assign(user, {id: uuid()}, userData);
+    Object.assign(user, { id: uuid() }, userData);
 
     this.users.push(user);
 
     return user;
-  };
+  }
 
   public async save(user: User): Promise<User> {
     const findIndex = this.users.findIndex(findUser => findUser.id === user.id);
