@@ -6,3 +6,5 @@ tmp/*
 build/
 ormconfig.json
 temp/
+
+dist
