@@ -6,5 +6,6 @@ tmp/*
 build/
 ormconfig.json
 temp/
+save.txt
 
 dist
