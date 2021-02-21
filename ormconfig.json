@@ -4,10 +4,10 @@
   {
     "type": "postgres",
     "host": "localhost",
-    "port": 5432,
+    "port": 35432,
     "username": "postgres",
-    "password": "1998",
-    "database": "gostack_gobarber",
+    "password": "ASD587WER1889",
+    "database": "gostack-postgres2",
     "entities": [
       "./dist/modules/**/infra/typeorm/entities/*.js"
     ],
@@ -21,9 +21,11 @@
   {
     "name": "mongo",
     "type": "mongodb",
+    "user": "mongodb",
+    "password": "UXALELE17Q8",
     "host": "localhost",
-    "port": 27017,
-    "database": "gobarber",
+    "port": 47017,
+    "database": "gostack-mongodb",
     "useUnifiedTopology": true,
     "entities": [
       "./dist/modules/**/infra/typeorm/schemas/*.js"
